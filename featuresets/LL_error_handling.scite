@@ -1,0 +1,14 @@
+Types:
+ErrorCallback
+
+Functions:
+setErrorFunc
+getErrorAttribComponents
+getErrorAttrib
+setErrorAttrib
+
+Constants:
+REPORT_SYNCHRONOUS, ERROR_CALLBACK_ENABLE, SEVERITY_LEVEL_FILTER, SEVERITY_LEVEL
+    getErrorAttribComponents
+    getErrorAttrib
+    setErrorAttrib

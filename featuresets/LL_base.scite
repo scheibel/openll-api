@@ -1,0 +1,35 @@
+Types:
+ErrorCode
+char
+unsigned char
+int
+unsigned int
+bool
+enum
+bitmask
+float
+handle
+
+Functions:
+initialize
+getProcAddress
+enable
+disable
+enabled
+getString
+getInteger
+getBool
+getFloat
+getEnum
+getError
+
+Constants:
+VERSION; VENDOR; EXTENSIONS, ERROR_CODE_STRING
+    getString
+MAJOR_VERSION, MINOR_VERSION, NUM_EXTENSIONS
+    getInteger
+LAST_ERROR
+    getEnum
+SUCCESS, INVALID_VALUE, INVALID_OPERATION, OUT_OF_HOST_MEMORY, OUT_OF_DEVICE_MEMORY, EXTENSION_NOT_PRESENT, OBJECT_UNKNOWN
+    getError
+    getEnum

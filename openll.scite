@@ -1,0 +1,322 @@
+
+================
+General / Global
+================
+
+enum            initialize      ()
+
+void(*)()       getProcAddress  (const char * functionName)
+
+// VERSION
+// VENDOR
+// EXTENSIONS
+// LINE_FEED
+// ERROR_CODE_STRING
+const char *    getString   (enum symbol)
+const char *    getString   (enum symbol, int index)
+
+// ERROR_CHECKING
+void            enable      (enum symbol)
+void            disable     (enum symbol)
+bool            enabled     (enum symbol)
+
+// MAJOR_VERSION
+// MINOR_VERSION
+// NUM_EXTENSIONS
+// NUM_RENDERING_ENGINES
+// NUM_GLYPH_SEQUENCE_ENCODINGS
+// NUM_FONT_FACE_ENCODINGS
+// MAX_FONT_FACES
+// MAX_GLYPH_SEQUENCES
+// MAX_SURFACES
+// MAX_RENDERERS
+void            getInteger  (enum symbol, int * values)
+void            getInteger  (enum symbol, int index, int * values)
+
+// HARDWARE_ACCELLERATED_RENDERING
+void            getBool     (enum symbol, bool * values)
+void            getBool     (enum symbol, int index, bool * values)
+
+void            getFloat    (enum symbol, float * values)
+void            getFloat    (enum symbol, int index, float * values)
+
+// RENDERING_ENGINES (OPENGL_RENDERING_ENGINE, ...)
+// GLYPH_SEQUENCE_ENCODINGS (ANSI_ENCODING, UC32_ENCODING)
+// FONT_FACE_ENCODINGS (FONT_FACE_FILE_ENCODING)
+// LAST_ERROR
+void            getEnum     (enum symbol, enum * values)
+void            getEnum     (enum symbol, int index, enum * values)
+
+// ERROR_CODE (SUCCESS, INVALID_VALUE, INVALID_OPERATION, OUT_OF_HOST_MEMORY, OUT_OF_DEVICE_MEMORY, EXTENSION_NOT_PRESENT, OBJECT_UNKNOWN)
+enum            getLastError()
+
+
+--------------
+Error Handling
+--------------
+
+void            setErrorFunc                (void (callback)(severity_level severity, enum error_code, const char * message))
+
+uint            getErrorAttribComponents    (handle glyphsequence, enum symbol)
+
+void            getErrorAttrib              (enum symbol, int * values)
+void            setErrorAttrib              (enum symbol, int * values)
+
+// REPORT_SYNCHRONOUS
+// ERROR_CALLBACK_ENABLE
+void            setErrorAttrib              (enum symbol, bool * values)
+void            getErrorAttrib              (enum symbol, bool * values)
+
+void            setErrorAttrib              (enum symbol, float * values)
+void            getErrorAttrib              (enum symbol, float * values)
+
+void            setErrorAttrib              (enum symbol, enum * values)
+void            getErrorAttrib              (enum symbol, enum * values)
+
+// SEVERITY_LEVEL_FILTER
+// SEVERITY_LEVEL (Critical, Error, Warning, Info, Debug)
+void            getErrorAttrib              (enum symbol, bitmask * values)
+void            setErrorAttrib              (enum symbol, bitmask * values)
+
+
+-------------
+Introspection
+-------------
+
+
+// GL_NUM_CONSTANTS
+// GL_NUM_BITFIELDS
+// GL_NUM_FUNCTIONS
+void            glGetInteger    (enum symbol, int * values)
+void            glGetInteger    (enum symbol, int index, int * value)
+// GL_CONSTANTS
+// GL_BITFIELDS
+void            glGetEnum       (enum symbol, enum * values)
+void            glGetEnum       (enum symbol, int index, enum * value)
+// GL_FUNCTIONS
+void            glGetString     (enum symbol, const char ** values)
+void            glGetString     (enum symbol, int index, const char ** value)
+
+
+========
+Concepts
+========
+
+
+-----------
+Text/String
+-----------
+
+
+...
+
+
+--------------
+Glyph Sequence
+--------------
+
+handle          createGlyphSequence     ()
+void            createGlyphSequence     (int count, handle * handles)
+
+void            destroyGlyphSequence    (handle handle)
+void            destroyGlyphSequence    (int count, handle * handles)
+
+// ANSI, ASCII, UTF-8, UC32
+void            loadGlyphSequenceText   (handle glyphsequence, enum internalFormat, enum encoding, const void * data)
+
+void            updateGlyphSequenceText (handle glyphsequence, int offset, enum encoding, const void * data)
+
+// SyncFlags (COHERENT, EXPLICIT_UPDATE, ON_UNMAP)
+void *          mapGlyphSequenceText    (handle glyphsequence, int offset, int length, bitmask syncflags)
+void            invalidateGlyphSequenceText(handle glyphsequence, int offset, int length)
+void            unmapGlyphSequenceText  (handle glyphsequence)
+
+uint            getGlyphSequenceAttribComponents    (handle glyphsequence, enum symbol)
+
+// NUM_CHARACTERS
+void            getGlyphSequenceAttrib  (handle glyphsequence, enum symbol, int * value)
+
+
+-----------------------
+Layouted Glyph Sequence
+-----------------------
+
+
+void            associateGlyphSequenceFontFace  (handle glyphsequence, handle fontface)
+
+// TYPESET_EXTENT
+void            getGlyphSequenceFontFaceAttrib  (handle ..., enum symbol, float * values)
+
+
+Typesetting
+-----------
+
+// TYPESET_MODE (2D, 3D, ...)
+// TYPESET_VIEWPORT_EXTENT
+// TYPESET_ORIGIN
+// TYPESET_ROTATION
+// TYPESET_ALIGNMENT (LeftAligned, Centered, RightAligned)
+// TYPESET_WORD_WRAP
+// TYPESET_LINE_WIDTH
+// TYPESET_LINE_ANCHOR (Top, Ascent, Center, Baseline, Descent, Bottom)
+// TYPESET_FONT_SIZE
+// TYPESET_FONT_COLOR
+// TYPESET_FONT_WEIGHT
+// TYPESET_LOCAL_TRANSFORM
+// TYPESET_TARGET_PPI
+// TYPESET_LINE_FEED_CHARACTER / TYPESET_LINE_FEED_CHARACTERS
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, int value)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, bool value)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, float value)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, enum value)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, float * values)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, char * value)
+void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, char ** values)
+
+
+---------
+Font Face
+---------
+
+handle          createFontFace          ()
+void            createFontFace          (int count, handle * handles)
+
+void            destroyFontFace         (handle handle)
+void            destroyFontFace         (int count, handle * handles)
+
+// FONT_FACE_TYPE_FONT_FILE
+void            loadFontFaceData        (handle fontface, enum type, void * data)
+
+uint            getFontFaceAttribComponents    (handle fontface, enum symbol)
+
+// TARGET_FONT_SIZE, TARGET_FONT_WEIGHT, BASE, ASCENT, DESCENT, LINEGAP, LINESPACE, LINEHEIGHT, NUM_GLYPHS, NUM_KERNINGS
+void            getFontFaceAttribInteger(handle fontface, enum symbol, int * values)
+void            getFontFaceAttribBool   (handle fontface, enum symbol, bool * values)
+void            getFontFaceAttribFloat  (handle fontface, enum symbol, float * values)
+
+
+-----
+Glyph
+-----
+
+// DEPICTABLE
+// BEARING
+// EXTENT
+// ADVANCE
+uint            getGlyphAttribComponents    (handle fontface, enum symbol)
+void            getGlyphAttribInteger       (handle fontface, int glyphIndex, enum symbol, int * values)
+void            getGlyphAttribBool          (handle fontface, int glyphIndex, enum symbol, bool * values)
+void            getGlyphAttribFloat         (handle fontface, int glyphIndex, enum symbol, float * values)
+
+
+Kerning
+-------
+
+void            getKerning              (handle fontface, int kerningIndex, kerning_info * kerning_info)
+
+
+-------
+Surface
+-------
+
+// OPENGL_SURFACE, NATIVE_PIXMAP_2D (+ EGL_SURFACE, OPENGL_TEXTURE, QT_WINDOW)
+handle          createSurface               (enum type, handle nativeHandle)
+
+void            destroySurface              (handle surface)
+
+// EXTENT
+// EXTENT_X
+// EXTENT_Y
+void            getSurfaceAttrib            (handle surface, enum symbol, int * value)
+void            getSurfaceAttrib            (handle surface, enum symbol, int * values)
+
+
+--------
+Renderer
+--------
+
+// OPENGL, DONT_CARE, SOFTWARE_RENDERING
+handle          createRenderer          (enum engine)
+
+void            destroyRenderer         (handle renderer)
+
+void            getRenderAttribComponents   (handle renderer, enum symbol)
+
+// SUPERSAMPLING (None, Grid, RGSS, Quincunx, Rook, ...)
+// TRANSFORMATION_MATRIX
+// DISABLE_FONT_COLORS
+void            setRenderAttribEnum     (handle renderer, enum symbol, enum value)
+void            setRenderAttribInteger  (handle renderer, enum symbol, int value)
+void            setRenderAttribFloat    (handle renderer, enum symbol, float value)
+void            setRenderAttribMat4x4   (handle renderer, enum symbol, float * values)
+
+void            renderGlyphSequence         (handle renderer, handle glyphsequence)
+void            renderGlyphSequenceIndexed  (handle renderer, handle glyphsequence, int * indices)
+
+
+-------------
+Render Device
+-------------
+
+// ...
+void            getDeviceAttrib (handle renderer, enum symbol, int * value)
+void            getDeviceAttrib (handle renderer, enum symbol, float * value)
+void            getDeviceAttrib (handle renderer, enum symbol, bool * value)
+void            getDeviceAttrib (handle renderer, enum symbol, enum * value)
+
+
+
+===================
+Additional Features
+===================
+
+
+------
+Carets
+------
+
+void            setGlyphSequenceCarets  (int count, int * caretPositions)
+
+// CARET_COLOR
+
+
+---------
+Selection
+---------
+
+void            setGlyphSequenceSelection   (handle glyphsequence, int count, int * ranges)
+void            setGlyphSequenceSelection   (handle glyphsequence, int * ranges) // NONE-separated
+
+// SELECTION_COLOR
+int             setGlyphSequenceSelectionAttribComponents(handle glyphsequence, enum symbol)
+void            setGlyphSequenceSelectionAttrib(handle glyphsequence, enum symbol, float * values)
+
+
+--------------
+OpenGL Binding
+--------------
+
+// OPENGL_RENDERER_PROGRAM_HANDLE
+void            setRendererAttrib   (handle renderer, enum symbol, GLuint value)
+void            getRendererAttrib   (handle renderer, enum symbol, GLuint * value)
+
+// RENDER_SEQUENCE_OPTIMIZED
+// HARDWARE_ACCELLERATED_RENDERING
+void            getRenderAttribBool (handle renderer, enum symbol, bool * values)
+void            setRenderAttribBool (handle renderer, enum symbol, bool * values)
+
+
+---------------
+Level of Detail
+---------------
+
+
+...
+
+
+-----------------
+Semantic Grouping
+-----------------
+
+
+...

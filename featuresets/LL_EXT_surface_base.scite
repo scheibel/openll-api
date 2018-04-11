@@ -1,0 +1,17 @@
+Types:
+SurfaceHandle
+
+Functions:
+createSurface
+destroySurface
+setSurfaceAttrib
+getSurfaceAttrib
+
+Constants:
+NATIVE_PIXMAP_2D
+    createSurface
+EXTENT, EXTENT_X, EXTENT_Y
+    setSurfaceAttrib
+    getSurfaceAttrib
+MAX_SURFACES
+    getInteger

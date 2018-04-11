@@ -1,0 +1,51 @@
+Types:
+GlyphSequenceHandle
+FontFaceHandle
+RendererHandle
+
+Functions:
+createGlyphSequence
+destroyGlyphSequence
+loadGlyphSequenceText
+getGlyphSequenceAttribComponents
+getGlyphSequenceAttrib
+setGlyphSequenceAttrib
+associateGlyphSequenceFontFace
+getGlyphSequenceFontFaceAttrib
+createFontFace
+destroyFontFace
+loadFontFaceData
+getFontFaceAttribComponents
+getFontFaceAttrib
+setFontFaceAttrib
+getGlyphAttribComponents
+getGlyphAttrib
+setGlyphAttrib
+getKerning
+createRenderer
+destroyRenderer
+setRenderAttrib
+renderGlyphSequence
+renderGlyphSequenceIndexed
+
+Constants:
+NUM_RENDERING_ENGINES, NUM_GLYPH_SEQUENCE_ENCODINGS, NUM_FONT_FACE_ENCODINGS
+    getInteger
+RENDERING_ENGINES (QT_RENDERING_ENGINE, FREETYPE_RENDERING_ENGINE, OPENGL_RENDERING_ENGINE)
+    getEnum
+ANSI_ENCODING, ASCII_ENCODING
+    loadGlyphSequenceText
+TYPESET_MODE (2D), TYPESET_VIEWPORT_EXTENT, TYPESET_ORIGIN, TYPESET_FONT_SIZE, TYPESET_FONT_WEIGHT
+    getGlyphSequenceAttribComponents
+    getGlyphSequenceAttrib
+    setGlyphSequenceAttrib
+FONT_FACE_TYPE_FONT_FILE
+    loadFontFaceData
+TARGET_FONT_SIZE, TARGET_FONT_WEIGHT, BASE, ASCENT, DESCENT, LINEGAP, LINESPACE, LINEHEIGHT, NUM_GLYPHS, NUM_KERNINGS
+    getFontFaceAttribComponents
+    getFontFaceAttrib
+    setFontFaceAttrib
+DEPICTABLE, BEARING, EXTENT, ADVANCE
+    getGlyphAttribComponents
+    getGlyphAttrib
+    setGlyphAttrib

@@ -1,0 +1,11 @@
+Types:
+MapSyncFlags
+
+Functions:
+mapGlyphSequenceText
+invalidateGlyphSequenceText
+unmapGlyphSequenceText
+
+Constants:
+COHERENT, EXPLICIT_UPDATE, ON_UNMAP
+    mapGlyphSequenceText

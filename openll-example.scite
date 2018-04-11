@@ -1,0 +1,9 @@
+// Create and initialize font face
+
+LLhandle fontface;
+
+llCreateFontFace(1, & fontface);
+
+const char * fontFaceContents = 0x0; // load from file
+
+llLoadFontFaceData(fontface, LL_FONT_FILE, fontFileContents

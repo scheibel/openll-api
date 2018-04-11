@@ -1,0 +1,9 @@
+Types:
+
+Functions:
+updateGlyphSequenceText
+
+Constants:
+UC32
+    loadGlyphSequenceText
+    updateGlyphSequenceText
