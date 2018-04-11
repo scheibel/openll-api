@@ -219,7 +219,7 @@ void            getKerning              (handle fontface, int kerningIndex, kern
 Surface
 -------
 
-// OPENGL_SURFACE, NATIVE_PIXMAP_2D (+ EGL_SURFACE, OPENGL_TEXTURE, QT_WINDOW)
+// OPENGL_DEFAULT_FRAMEBUFFER_SURFACE, OPENGL_FRAMEBUFFER_SURFACE, OPENGL_TEXTURE_SURFACE, NATIVE_PIXMAP_2D (+ EGL_SURFACE, OPENGL_TEXTURE, QT_WINDOW)
 handle          createSurface               (enum type, handle nativeHandle)
 
 void            destroySurface              (handle surface)
