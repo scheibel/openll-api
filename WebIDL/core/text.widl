@@ -12,9 +12,6 @@ partial namespace openll {
         const Enum NUM_TEXT_CONTENTS_ENCODINGS;
         const Enum TEXT_ENCODING_ANSI;
         const Enum TEXT_ENCODING_ASCII;
-        const Enum TEXT_ENCODING_UTF8;
-        const Enum TEXT_ENCODING_UTF16;
-        const Enum TEXT_ENCODING_UC32;
         
         // Attributes
         const Enum TEXT_LENGTH;

@@ -1,0 +1,15 @@
+
+/**
+*
+* LL_encoding_utf8
+*
+* depends: LL_core
+*
+**/
+
+partial namespace openll {
+    partial interface Enumerations {
+        // Encodings
+        const Enum TEXT_ENCODING_UTF8;
+    }
+}

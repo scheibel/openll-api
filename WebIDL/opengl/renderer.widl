@@ -1,0 +1,11 @@
+
+// Renderer
+
+partial namespace openll {
+    partial interface Enumerations {
+        const Enum RENDERER_TYPE_OPENGL;
+
+        // Attributes
+        const Enum RENDERER_SYPERSAMPLING;
+    }
+}

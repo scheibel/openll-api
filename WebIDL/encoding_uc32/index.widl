@@ -1,0 +1,15 @@
+
+/**
+*
+* LL_encoding_uc32
+*
+* depends: LL_core
+*
+**/
+
+partial namespace openll {
+    partial interface Enumerations {
+        // Encodings
+        const Enum TEXT_ENCODING_UC32;
+    }
+}
