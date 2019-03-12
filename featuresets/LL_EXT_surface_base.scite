@@ -1,3 +1,6 @@
+Requires:
+LL_core
+
 Types:
 SurfaceHandle
 

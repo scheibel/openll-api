@@ -1,0 +1,53 @@
+
+// Renderer
+
+partial namespace openll {
+    typedef unsigned short RendererHandle;
+    typedef unsigned short RenderingEngineIndex;
+    
+    partial interface Enumerations {
+        const Enum NUM_RENDERING_ENGINES;
+        
+        // Attributes
+        const Enum RENDERER_ENGINE;
+        // const Enum RENDERER_FONT_COLORS;
+        
+        // Renderer Engine values
+        const Enum RENDERER_UNDEFINED;
+        
+        // Rendering Engine Attributes
+        const Enum RENDERING_ENGINE_NUM_SUPPORTED_SURFACE_TYPES;
+        const Enum RENDERING_ENGINE_SUPPORTED_SURFACE_TYPES;
+        const Enum RENDERING_ENGINE_ACCELERATION;
+        
+        // Acceleration values
+        const Enum RENDERING_ENGINE_SOFTWARE_RENDERING;
+        const Enum RENDERING_ENGINE_HARDWARE_ACCELERATION;
+        
+        // Maximums
+        const Enum MAX_RENDERER_INSTANCES;
+    }
+    
+    [Constructor(Enum type)]
+    interface Renderer {
+        void renderGlyphSequence(Surface surface, GlyphSequence glyphsequence);
+        
+        boolean getAttribBoolean(RendererHandle handle, Enum symbol);
+        short getAttribInteger(RendererHandle handle, Enum symbol);
+        // Repeat per type
+    }
+    
+    void renderGlyphSequence(RendererHandle renderer, SurfaceHandle surface, GlyphSequenceHandle glyphsequence);
+    
+    boolean getRenderingEngineAttribBoolean(RenderingEngineIndex index, Enum symbol);
+    short getRenderingEngineAttribInteger(RenderingEngineIndex index, Enum symbol);
+    Enum getRenderingEngineAttribEnumIndex(RenderingEngineIndex index, Enum symbol, unsigned short index);
+    // Repeat per type
+    
+    RendererHandle createRenderer(Enum type);
+    void destroyRenderer(RendererHandle handle);
+    
+    boolean getRendererAttribBoolean(RendererHandle handle, Enum symbol);
+    short getRendererAttribInteger(RendererHandle handle, Enum symbol);
+    // Repeat per type
+}

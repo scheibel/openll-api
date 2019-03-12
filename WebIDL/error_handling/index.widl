@@ -1,0 +1,17 @@
+
+/**
+*
+* LL_error_handling
+*
+* depends: LL_core
+*
+**/
+
+partial namespace openll {
+    callback ErrorCallback = void(ErrorCode code, ErrorSeverity severity);
+    
+    void setErrorFunc(ErrorCallback callback);
+    
+    Value getErrorAttrib(ErrorAttribute attrib);
+    void setErrorAttrib(ErrorAttribute attrib, Value value);
+}

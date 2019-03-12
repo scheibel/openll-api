@@ -1,0 +1,32 @@
+
+// Surface
+
+partial namespace openll {
+    typedef unsigned short SurfaceHandle;
+    
+    partial interface Enumerations {
+        const Enum NUM_SURFACE_TYPES;
+        
+        // Attributes
+        const Enum SURFACE_TYPE;
+        const Enum SURFACE_DEVICE_PIXEL_RATIO;
+        const Enum SURFACE_PIXEL_PER_INCH;
+        // const Enum SURFACE_REFERENCE_PIXEL_PER_INCH;
+        const Enum SURFACE_VIEWPORT;
+        // const Enum SURFACE_SUPERSAMPLING;
+        
+        // Maximums
+        const Enum MAX_SURFACE_INSTANCES;
+    }
+    
+    [Constructor(Enum type)]
+    interface Surface {
+        
+    }
+    
+    SurfaceHandle createSurface(Enum type);
+    void destroySurface(SurfaceHandle handle);
+    
+    short getSurfaceAttribInteger(SurfaceHandle handle, Enum symbol);
+    float getSurfaceAttribFloat(SurfaceHandle handle, Enum symbol);
+}

@@ -1,7 +1,7 @@
 
-================
-General / Global
-================
+// ================
+// General / Global
+// ================
 
 enum            initialize      ()
 
@@ -51,9 +51,9 @@ void            getEnum     (enum symbol, int index, enum * values)
 enum            getLastError()
 
 
---------------
-Error Handling
---------------
+// --------------
+// Error Handling
+// --------------
 
 void            setErrorFunc                (void (callback)(severity_level severity, enum error_code, const char * message))
 
@@ -79,9 +79,9 @@ void            getErrorAttrib              (enum symbol, bitmask * values)
 void            setErrorAttrib              (enum symbol, bitmask * values)
 
 
--------------
-Introspection
--------------
+// -------------
+// Introspection
+// -------------
 
 
 // GL_NUM_CONSTANTS
@@ -98,22 +98,22 @@ void            glGetString     (enum symbol, const char ** values)
 void            glGetString     (enum symbol, int index, const char ** value)
 
 
-========
-Concepts
-========
+// ========
+// Concepts
+// ========
 
 
------------
-Text/String
------------
+// -----------
+// Text/String
+// -----------
 
 
-...
+// ...
 
 
---------------
-Glyph Sequence
---------------
+// --------------
+// Glyph Sequence
+// --------------
 
 handle          createGlyphSequence     ()
 void            createGlyphSequence     (int count, handle * handles)
@@ -137,9 +137,9 @@ uint            getGlyphSequenceAttribComponents    (handle glyphsequence, enum 
 void            getGlyphSequenceAttrib  (handle glyphsequence, enum symbol, int * value)
 
 
------------------------
-Layouted Glyph Sequence
------------------------
+// -----------------------
+// Layouted Glyph Sequence
+// -----------------------
 
 
 void            associateGlyphSequenceFontFace  (handle glyphsequence, handle fontface)
@@ -148,8 +148,8 @@ void            associateGlyphSequenceFontFace  (handle glyphsequence, handle fo
 void            getGlyphSequenceFontFaceAttrib  (handle ..., enum symbol, float * values)
 
 
-Typesetting
------------
+// Typesetting
+// -----------
 
 // TYPESET_MODE (2D, 3D, ...)
 // TYPESET_VIEWPORT_EXTENT
@@ -174,9 +174,9 @@ void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, char
 void            setGlyphSequenceAttrib  (handle glyphsequence, enum symbol, char ** values)
 
 
----------
-Font Face
----------
+// ---------
+// Font Face
+// ---------
 
 handle          createFontFace          ()
 void            createFontFace          (int count, handle * handles)
@@ -195,9 +195,9 @@ void            getFontFaceAttribBool   (handle fontface, enum symbol, bool * va
 void            getFontFaceAttribFloat  (handle fontface, enum symbol, float * values)
 
 
------
-Glyph
------
+// -----
+// Glyph
+// -----
 
 // DEPICTABLE
 // BEARING
@@ -209,15 +209,15 @@ void            getGlyphAttribBool          (handle fontface, int glyphIndex, en
 void            getGlyphAttribFloat         (handle fontface, int glyphIndex, enum symbol, float * values)
 
 
-Kerning
--------
+// Kerning
+// -------
 
 void            getKerning              (handle fontface, int kerningIndex, kerning_info * kerning_info)
 
 
--------
-Surface
--------
+// -------
+// Surface
+// -------
 
 // OPENGL_DEFAULT_FRAMEBUFFER_SURFACE, OPENGL_FRAMEBUFFER_SURFACE, OPENGL_TEXTURE_SURFACE, NATIVE_PIXMAP_2D (+ EGL_SURFACE, OPENGL_TEXTURE, QT_WINDOW)
 handle          createSurface               (enum type, handle nativeHandle)
@@ -231,9 +231,9 @@ void            getSurfaceAttrib            (handle surface, enum symbol, int * 
 void            getSurfaceAttrib            (handle surface, enum symbol, int * values)
 
 
---------
-Renderer
---------
+// --------
+// Renderer
+// --------
 
 // OPENGL, DONT_CARE, SOFTWARE_RENDERING
 handle          createRenderer          (enum engine)
@@ -254,9 +254,9 @@ void            renderGlyphSequence         (handle renderer, handle glyphsequen
 void            renderGlyphSequenceIndexed  (handle renderer, handle glyphsequence, int * indices)
 
 
--------------
-Render Device
--------------
+// -------------
+// Render Device
+// -------------
 
 // ...
 void            getDeviceAttrib (handle renderer, enum symbol, int * value)
@@ -266,23 +266,23 @@ void            getDeviceAttrib (handle renderer, enum symbol, enum * value)
 
 
 
-===================
-Additional Features
-===================
+// ===================
+// Additional Features
+// ===================
 
 
-------
-Carets
-------
+// ------
+// Carets
+// ------
 
 void            setGlyphSequenceCarets  (int count, int * caretPositions)
 
 // CARET_COLOR
 
 
----------
-Selection
----------
+// ---------
+// Selection
+// ---------
 
 void            setGlyphSequenceSelection   (handle glyphsequence, int count, int * ranges)
 void            setGlyphSequenceSelection   (handle glyphsequence, int * ranges) // NONE-separated
@@ -292,9 +292,9 @@ int             setGlyphSequenceSelectionAttribComponents(handle glyphsequence, 
 void            setGlyphSequenceSelectionAttrib(handle glyphsequence, enum symbol, float * values)
 
 
---------------
-OpenGL Binding
---------------
+// --------------
+// OpenGL Binding
+// --------------
 
 // OPENGL_RENDERER_PROGRAM_HANDLE
 void            setRendererAttrib   (handle renderer, enum symbol, GLuint value)
@@ -306,17 +306,17 @@ void            getRenderAttribBool (handle renderer, enum symbol, bool * values
 void            setRenderAttribBool (handle renderer, enum symbol, bool * values)
 
 
----------------
-Level of Detail
----------------
+// ---------------
+// Level of Detail
+// ---------------
 
 
-...
+// ...
 
 
------------------
-Semantic Grouping
------------------
+// -----------------
+// Semantic Grouping
+// -----------------
 
 
-...
+// ...

@@ -1,0 +1,79 @@
+
+// FontFace
+
+partial namespace openll {
+    typedef unsigned short FontFaceHandle;
+    typedef unsigned long GlyphIndex;
+    typedef unsigned long KerningIndex;
+    
+    partial interface Enumerations {
+        // Encodings
+        const Enum FONT_FACE_ENCODINGS;
+        const Enum NUM_FONT_FACE_ENCODINGS;
+        const Enum FONT_FACE_FORMAT_DISTANCE_FIELD_FONT_FILE;
+        
+        // Attributes
+        const Enum FONT_FACE_TARGET_SIZE;
+        const Enum FONT_FACE_WEIGHT;
+        const Enum FONT_FACE_BASELINE;
+        const Enum FONT_FACE_ASCENT;
+        const Enum FONT_FACE_DESCENT;
+        const Enum FONT_FACE_LINE_GAP;
+        const Enum FONT_FACE_LINE_SPACE;
+        const Enum FONT_FACE_LINE_HEIGHT;
+        const Enum FONT_FACE_NUM_GLYPHS;
+        const Enum FONT_FACE_NUM_KERNINGS;
+        
+        // Glyph Attributes
+        const Enum FONT_FACE_GLYPH_DEPICTABLE;
+        const Enum FONT_FACE_GLYPH_BEARING;
+        const Enum FONT_FACE_GLYPH_EXTENT;
+        const Enum FONT_FACE_GLYPH_ADVANCE;
+        
+        // Kerning Attributes
+        const Enum FONT_FACE_KERNING_FROM;
+        const Enum FONT_FACE_KERNING_TO;
+        const Enum FONT_FACE_KERNING_VALUE;
+        
+        // Maximums
+        const Enum MAX_FONT_FACE_INSTANCES;
+    }
+    
+    [Constructor]
+    interface FontFace {
+        void loadData(Enum format, ByteString contents);
+        
+        short getAttribInteger(Enum symbol);
+        float getAttribFloat(Enum symbol);
+        // Repeat per type
+        
+        KerningIndex getKerningIndex(GlyphIndex from, GlyphIndex to);
+        
+        long getKerningAttribInteger(KerningIndex index, Enum symbol);
+        float getKerningAttribFloat(KerningIndex index, Enum symbol);
+        // Repeat per type
+
+        short getGlyphAttribInteger(GlyphIndex index, Enum symbol);
+        float getGlyphAttribFloat(GlyphIndex index, Enum symbol);
+        // Repeat per type
+    }
+    
+    FontFaceHandle createFontFace();
+    void destroyFontFace(FontFaceHandle handle);
+    
+    void loadFontFaceData(FontFaceHandle handle, Enum format, ByteString contents);
+    
+    short getFontFaceAttribInteger(FontFaceHandle handle, Enum symbol);
+    float getFontFaceAttribFloat(FontFaceHandle handle, Enum symbol);
+    // Repeat per type
+    
+    KerningIndex getFontFaceKerningIndex(FontFaceHandle handle, GlyphIndex from, GlyphIndex to);
+    
+    long getFontFaceKerningAttribInteger(FontFaceHandle handle, KerningIndex index, Enum symbol);
+    float getFontFaceKerningAttribFloat(FontFaceHandle handle, KerningIndex index, Enum symbol);
+    // Repeat per type
+
+    short getFontFaceGlyphAttribInteger(FontFaceHandle handle, GlyphIndex index, Enum symbol);
+    float getFontFaceGlyphAttribFloat(FontFaceHandle handle, GlyphIndex index, Enum symbol);
+    // Repeat per type
+}

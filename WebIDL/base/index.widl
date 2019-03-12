@@ -1,0 +1,67 @@
+
+/**
+*
+* LL_base
+*
+**/
+
+partial namespace openll {
+    // type ByteString;
+    // type boolean;
+    // type byte;
+    // type octet;
+    // type short;
+    // type unsigned short;
+    // type float;
+    
+    typedef unsigned short Enum;
+    typedef Enum ErrorCode;
+    
+    partial interface Enumerations {
+        // Booleans
+        const boolean TRUE = true;
+        const boolean FALSE = false;
+    }
+    
+    partial interface Enumerations {
+        // Error Code
+        const ErrorCode SUCCESS;
+        const ErrorCode INVALID_VALUE;
+        const ErrorCode INVALID_OPERATION;
+        const ErrorCode OUT_OF_HOST_MEMORY;
+        const ErrorCode OUT_OF_DEVICE_MEMORY;
+        const ErrorCode EXTENSION_NOT_PRESENT;
+        const ErrorCode OBJECT_UNKNOWN;
+    }
+    
+    partial interface Enumerations {
+        // Versioning
+        const Enum MAJOR_VERSION;
+        const Enum MINOR_VERSION;
+        const Enum VERSION_STRING;
+    }
+    
+    partial interface Enumerations {
+        // Vendor
+        const Enum VENDOR_STRING;
+    }
+    
+    partial interface Enumerations {
+        // Extension Handling
+        const Enum EXTENSIONS;
+        const Enum NUM_EXTENSIONS;
+    }
+    
+    void initialize();
+    
+    ErrorCode getError();
+    
+    Enum getEnum(Enum symbol);
+    
+    ByteString getString(Enum symbol);
+    
+    boolean getBoolean(Enum symbol);
+    short getInteger(Enum symbol);
+    float getFloat(Enum symbol);
+    // Repeat per type
+}

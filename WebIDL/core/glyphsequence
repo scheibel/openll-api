@@ -1,0 +1,54 @@
+
+// GlyphSequence
+
+partial namespace openll {
+    typedef unsigned short GlyphSequenceHandle;
+    
+    partial interface Enumerations {
+        // Attributes
+        // const Enum TYPESET_MODE;
+        const Enum TYPESET_ALIGNMENT;
+        const Enum TYPESET_ANCHOR;
+        const Enum TYPESET_FONT_SIZE;
+        const Enum TYPESET_FONT_WEIGHT;
+        
+        // Mode values
+        // const Enum TYPESET_MODE_2D;
+        // const Enum TYPESET_MODE_3D;
+        
+        // Alignment values
+        const Enum TYPESET_ALIGNMENT_LEFT_ALIGNED;
+        const Enum TYPESET_ALIGNMENT_RIGHT_ALIGNED;
+        const Enum TYPESET_ALIGNMENT_CENTERED;
+        
+        // Anchor values
+        const Enum TYPESET_ANCHOR_BASELINE;
+        const Enum TYPESET_ANCHOR_ASCENT;
+        const Enum TYPESET_ANCHOR_DESCENT;
+        // const Enum TYPESET_ANCHOR_TOP;
+        // const Enum TYPESET_ANCHOR_BOTTOM;
+        
+        // Maximums
+        const Enum MAX_GLYPH_SEQUENCE_INSTANCES;
+    }
+    
+    [Constructor]
+    interface GlyphSequence {
+        short getAttribInteger(Enum symbol);
+        void setAttribInteger(Enum symbol, short value);
+        // Repeat per type
+        
+        void assignText(Text text);
+        void assignFontFace(FontFace fontFace);
+    }
+    
+    GlyphSequenceHandle createGlyphSequence();
+    void destroyGlyphSequence(GlyphSequenceHandle handle);
+    
+    short getGlyphSequenceAttribInteger(GlyphSequenceHandle handle, Enum symbol);
+    void setGlyphSequenceAttribInteger(GlyphSequenceHandle handle, Enum symbol, short value);
+    // Repeat per type
+    
+    void assignGlyphSequenceText(GlyphSequenceHandle handle, TextHandle text);
+    void assignGlyphSequenceFontFace(GlyphSequenceHandle handle, FontFaceHandle fontFace);
+}

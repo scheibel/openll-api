@@ -1,3 +1,6 @@
+Requires:
+LL_base
+
 Types:
 GlyphSequenceHandle
 FontFaceHandle

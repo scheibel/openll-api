@@ -1,0 +1,44 @@
+
+// Text
+
+partial namespace openll {
+    typedef unsigned short TextHandle;
+    
+    partial interface Enumerations {
+        // Encodings
+        const Enum INTERNAL_TEXT_ENCODINGS;
+        const Enum NUM_INTERNAL_TEXT_ENCODINGS;
+        const Enum TEXT_CONTENTS_ENCODINGS;
+        const Enum NUM_TEXT_CONTENTS_ENCODINGS;
+        const Enum TEXT_ENCODING_ANSI;
+        const Enum TEXT_ENCODING_ASCII;
+        const Enum TEXT_ENCODING_UTF8;
+        const Enum TEXT_ENCODING_UTF16;
+        const Enum TEXT_ENCODING_UC32;
+        
+        // Attributes
+        const Enum TEXT_LENGTH;
+        const Enum TEXT_ENCODING;
+        
+        // Maximums
+        const Enum MAX_TEXT_INSTANCES;
+    }
+    
+    [Constructor]
+    interface Text {
+        void loadContents(Enum internalFormat, Enum contentEncoding, ByteString contents);
+        
+        unsigned long getAttribUnsignedLong(Enum symbol);
+        Enum getAttribEnum(Enum symbol);
+        // Repeat per type
+    }
+    
+    TextHandle createText();
+    void destroyText(TextHandle handle);
+    
+    void loadTextContents(TextHandle handle, Enum internalFormat, Enum contentEncoding, unsigned long length, ByteString contents);
+    
+    unsigned long getTextAttribUnsignedLong(TextHandle handle, Enum symbol);
+    Enum getTextAttribEnum(TextHandle handle, Enum symbol);
+    // Repeat per type
+}
