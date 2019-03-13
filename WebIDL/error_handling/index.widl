@@ -13,10 +13,21 @@ namespace openll {
         const Symbol MODULE_ERROR_HANDLING;
     }
 
+    partial interface ErrorAttributes {
+        const Symbol ERROR_SEVERITY_FILTER;
+    }
+
+    partial interface ErrorSeverity {
+        const Symbol ERROR;
+        const Symbol WARNING;
+        const Symbol INFO;
+        const Symbol DEBUG;
+    }
+
     callback ErrorCallback = void(ErrorCode code, ErrorSeverity severity);
     
-    void setErrorFunc(ErrorCallback callback);
+    void setErrorCallback(ErrorCallback callback);
     
     Value getErrorAttrib(ErrorAttribute attrib);
-    void setErrorAttrib(ErrorAttribute attrib, Value value);
+    void setErrorAttribSymbol(ErrorAttribute attrib, Symbol value);
 }

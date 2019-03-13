@@ -2,52 +2,32 @@
 // Renderer
 
 namespace openll {
-    typedef unsigned short RendererHandle;
-    typedef unsigned short RenderingEngineIndex;
-    
-    partial interface Enumerations {
-        const Enum NUM_RENDERING_ENGINES;
-        
-        // Attributes
-        const Enum RENDERER_ENGINE;
-        // const Enum RENDERER_FONT_COLORS;
-        
-        // Renderer Engine values
-        const Enum RENDERER_UNDEFINED;
-        
-        // Rendering Engine Attributes
-        const Enum RENDERING_ENGINE_NUM_SUPPORTED_SURFACE_TYPES;
-        const Enum RENDERING_ENGINE_SUPPORTED_SURFACE_TYPES;
-        const Enum RENDERING_ENGINE_ACCELERATION;
-        
-        // Acceleration values
-        const Enum RENDERING_ENGINE_SOFTWARE_RENDERING;
-        const Enum RENDERING_ENGINE_HARDWARE_ACCELERATION;
-        
-        // Maximums
-        const Enum MAX_RENDERER_INSTANCES;
+    typedef Handle RendererHandle;
+
+    partial interface Limits {
+        const Symbol MAX_RENDERER_INSTANCES;
+    }
+
+    partial interface RendererAttribute {
+        const Symbol RENDERER_ENGINE_TYPE;
+        const Symbol RENDERER_FONT_COLORS;
     }
     
-    [Constructor(Enum type)]
+    [Constructor(RenderingEngineType type)]
     interface Renderer {
-        void renderGlyphSequence(Surface surface, GlyphSequence glyphsequence);
+        void renderLabel(Surface surface, Label label);
         
-        boolean getAttribBoolean(RendererHandle handle, Enum symbol);
-        short getAttribInteger(RendererHandle handle, Enum symbol);
+        boolean getAttribBoolean(RendererHandle handle, RendererAttribute symbol);
+        short getAttribInteger(RendererHandle handle, RendererAttribute symbol);
         // Repeat per type
     }
     
-    void renderGlyphSequence(RendererHandle renderer, SurfaceHandle surface, GlyphSequenceHandle glyphsequence);
+    void renderLabel(RendererHandle renderer, SurfaceHandle surface, LabelHandle label);
     
-    boolean getRenderingEngineAttribBoolean(RenderingEngineIndex index, Enum symbol);
-    short getRenderingEngineAttribInteger(RenderingEngineIndex index, Enum symbol);
-    Enum getRenderingEngineAttribEnumIndex(RenderingEngineIndex index, Enum symbol, unsigned short index);
-    // Repeat per type
-    
-    RendererHandle createRenderer(Enum type);
+    RendererHandle createRenderer(RenderingEngineType type);
     void destroyRenderer(RendererHandle handle);
     
-    boolean getRendererAttribBoolean(RendererHandle handle, Enum symbol);
-    short getRendererAttribInteger(RendererHandle handle, Enum symbol);
+    boolean getRendererAttribBoolean(RendererHandle handle, RendererAttribute symbol);
+    short getRendererAttribInteger(RendererHandle handle, RendererAttribute symbol);
     // Repeat per type
 }

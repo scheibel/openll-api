@@ -2,16 +2,17 @@
 // Surface
 
 namespace openll {
-    partial interface Enumerations {
-        const Enum SURFACE_TYPE_OPENGL_TEXTURE;
-        const Enum SURFACE_TYPE_OPENGL_FRAMEBUFFER;
-        const Enum SURFACE_TYPE_OPENGL_RENDERBUFFER;
+    partial interface SurfaceType {
+        const Symbol SURFACE_TYPE_OPENGL_TEXTURE;
+        const Symbol SURFACE_TYPE_OPENGL_FRAMEBUFFER;
+        const Symbol SURFACE_TYPE_OPENGL_RENDERBUFFER;
+    }
 
-        // Attributes
-        const Enum SURFACE_OPENGL_FRAMEBUFFER_NAME;
-        const Enum SURFACE_OPENGL_FRAMEBUFFER_TARGET;
-        const Enum SURFACE_OPENGL_TEXTURE_NAME;
-        const Enum SURFACE_OPENGL_TEXTURE_LAYER;
-        const Enum SURFACE_OPENGL_RENDERBUFFER_NAME;
+    partial interface SurfaceAttribute {
+        const Symbol SURFACE_OPENGL_FRAMEBUFFER_NAME;
+        const Symbol SURFACE_OPENGL_FRAMEBUFFER_ATTACHMENT;
+        const Symbol SURFACE_OPENGL_TEXTURE_NAME;
+        const Symbol SURFACE_OPENGL_TEXTURE_LAYER;
+        const Symbol SURFACE_OPENGL_RENDERBUFFER_NAME;
     }
 }

@@ -1,0 +1,34 @@
+
+// Rendering Engine
+
+namespace openll {
+    typedef unsigned short RenderingEngineIndex;
+
+    partial interface Limits {
+        const Symbol NUM_RENDERING_ENGINES;
+    }
+
+    partial interface RenderingEngineInformation {
+        const Symbol RENDERING_ENGINES;
+    }
+
+    partial interface RenderingEngineType {
+        const Symbol RENDERING_ENGINE_TYPE_UNDEFINED;
+    }
+
+    partial interface RenderingEngineAttribute {
+        const Symbol RENDERING_ENGINE_NUM_SUPPORTED_SURFACE_TYPES;
+        const Symbol RENDERING_ENGINE_SUPPORTED_SURFACE_TYPES;
+        const Symbol RENDERING_ENGINE_ACCELERATION;
+    }
+
+    partial interface RenderingEngineAcceleration {
+        const Symbol RENDERING_ENGINE_SOFTWARE_RENDERING;
+        const Symbol RENDERING_ENGINE_HARDWARE_ACCELERATION;
+    }
+    
+    boolean getRenderingEngineAttribBoolean(RenderingEngineIndex index, RenderingEngineAttribute symbol);
+    short getRenderingEngineAttribInteger(RenderingEngineIndex index, RenderingEngineAttribute symbol);
+    Symbol getRenderingEngineAttribSymbolIndex(RenderingEngineIndex index, RenderingEngineAttribute symbol, unsigned short index);
+    // Repeat per type
+}

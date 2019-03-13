@@ -2,78 +2,97 @@
 // FontFace
 
 namespace openll {
-    typedef unsigned short FontFaceHandle;
+    typedef Handle FontFaceHandle;
     typedef unsigned long GlyphIndex;
     typedef unsigned long KerningIndex;
+
+    partial interface FontFaceInformation {
+        const Symbol FONT_FACE_FORMATS;
+        const Symbol FONT_FACE_INTERNAL_FORMATS;
+    }
+
+    partial interface Limits {
+        const Symbol NUM_FONT_FACE_FORMATS;
+        const Symbol NUM_FONT_FACE_INTERNAL_FORMATS;
+        const Symbol MAX_FONT_FACE_INSTANCES;
+    }
+
+    partial interface InternalFontFormats {
+        const Symbol FONT_INTERNAL_FORMAT_BITMAP;
+        const Symbol FONT_INTERNAL_FORMAT_VECTOR_PATHS;
+        const Symbol FONT_INTERNAL_FORMAT_VECTOR_FIELD;
+        const Symbol FONT_INTERNAL_FORMAT_DISTANCE_FIELD;
+    }
+
+    partial interface FontFormat {
+    }
+
+    partial interface FontFileType {
+    }
+
+    partial interface FontFaceAttribute {
+        const Symbol FONT_FACE_TARGET_SIZE;
+        const Symbol FONT_FACE_WEIGHT;
+        const Symbol FONT_FACE_BASELINE;
+        const Symbol FONT_FACE_ASCENT;
+        const Symbol FONT_FACE_DESCENT;
+        const Symbol FONT_FACE_LINE_GAP;
+        const Symbol FONT_FACE_LINE_SPACE;
+        const Symbol FONT_FACE_LINE_HEIGHT;
+        const Symbol FONT_FACE_NUM_GLYPHS;
+        const Symbol FONT_FACE_NUM_KERNINGS;
+    }
+
+    partial interface GlyphAttribute {
+        const Symbol FONT_FACE_GLYPH_DEPICTABLE;
+        const Symbol FONT_FACE_GLYPH_BEARING;
+        const Symbol FONT_FACE_GLYPH_EXTENT;
+        const Symbol FONT_FACE_GLYPH_ADVANCE;
+    }
     
-    partial interface Enumerations {
-        // Encodings
-        const Enum FONT_FACE_ENCODINGS;
-        const Enum NUM_FONT_FACE_ENCODINGS;
-        const Enum FONT_FACE_FORMAT_DISTANCE_FIELD_FONT_FILE;
-        
-        // Attributes
-        const Enum FONT_FACE_TARGET_SIZE;
-        const Enum FONT_FACE_WEIGHT;
-        const Enum FONT_FACE_BASELINE;
-        const Enum FONT_FACE_ASCENT;
-        const Enum FONT_FACE_DESCENT;
-        const Enum FONT_FACE_LINE_GAP;
-        const Enum FONT_FACE_LINE_SPACE;
-        const Enum FONT_FACE_LINE_HEIGHT;
-        const Enum FONT_FACE_NUM_GLYPHS;
-        const Enum FONT_FACE_NUM_KERNINGS;
-        
-        // Glyph Attributes
-        const Enum FONT_FACE_GLYPH_DEPICTABLE;
-        const Enum FONT_FACE_GLYPH_BEARING;
-        const Enum FONT_FACE_GLYPH_EXTENT;
-        const Enum FONT_FACE_GLYPH_ADVANCE;
-        
-        // Kerning Attributes
-        const Enum FONT_FACE_KERNING_FROM;
-        const Enum FONT_FACE_KERNING_TO;
-        const Enum FONT_FACE_KERNING_VALUE;
-        
-        // Maximums
-        const Enum MAX_FONT_FACE_INSTANCES;
+    partial interface KerningAttribute {
+        const Symbol FONT_FACE_KERNING_FROM;
+        const Symbol FONT_FACE_KERNING_TO;
+        const Symbol FONT_FACE_KERNING_VALUE;
     }
     
     [Constructor]
     interface FontFace {
-        void loadData(Enum format, ByteString contents);
+        void loadData(InternalFontFormat internalFormat, FontFormat format, sequence<FontFileType> filetypes, sequence<ByteString> contents);
+        void loadData(InternalFontFormat internalFormat, FontFormat format, FontFileType filetype, ByteString contents);
         
-        short getAttribInteger(Enum symbol);
-        float getAttribFloat(Enum symbol);
+        short getAttribInteger(FontFaceAttribute symbol);
+        float getAttribFloat(FontFaceAttribute symbol);
         // Repeat per type
         
         KerningIndex getKerningIndex(GlyphIndex from, GlyphIndex to);
         
-        long getKerningAttribInteger(KerningIndex index, Enum symbol);
-        float getKerningAttribFloat(KerningIndex index, Enum symbol);
+        long getKerningAttribInteger(KerningIndex index, KerningAttribute symbol);
+        float getKerningAttribFloat(KerningIndex index, KerningAttribute symbol);
         // Repeat per type
 
-        short getGlyphAttribInteger(GlyphIndex index, Enum symbol);
-        float getGlyphAttribFloat(GlyphIndex index, Enum symbol);
+        short getGlyphAttribInteger(GlyphIndex index, GlyphAttribute symbol);
+        float getGlyphAttribFloat(GlyphIndex index, GlyphAttribute symbol);
         // Repeat per type
     }
     
     FontFaceHandle createFontFace();
     void destroyFontFace(FontFaceHandle handle);
     
-    void loadFontFaceData(FontFaceHandle handle, Enum format, ByteString contents);
+    void loadFontFaceData(FontFaceHandle handle, InternalFontFormat internalFormat, FontFormat format, sequence<FontFileType> types, sequence<ByteString> contents);
+    void loadFontFaceData(FontFaceHandle handle, InternalFontFormat internalFormat, FontFormat format, FontFileType filetype, ByteString contents);
     
-    short getFontFaceAttribInteger(FontFaceHandle handle, Enum symbol);
-    float getFontFaceAttribFloat(FontFaceHandle handle, Enum symbol);
+    short getFontFaceAttribInteger(FontFaceHandle handle, FontFaceAttribute symbol);
+    float getFontFaceAttribFloat(FontFaceHandle handle, FontFaceAttribute symbol);
     // Repeat per type
     
     KerningIndex getFontFaceKerningIndex(FontFaceHandle handle, GlyphIndex from, GlyphIndex to);
     
-    long getFontFaceKerningAttribInteger(FontFaceHandle handle, KerningIndex index, Enum symbol);
-    float getFontFaceKerningAttribFloat(FontFaceHandle handle, KerningIndex index, Enum symbol);
+    long getFontFaceKerningAttribInteger(FontFaceHandle handle, KerningIndex index, KerningAttribute symbol);
+    float getFontFaceKerningAttribFloat(FontFaceHandle handle, KerningIndex index, KerningAttribute symbol);
     // Repeat per type
 
-    short getFontFaceGlyphAttribInteger(FontFaceHandle handle, GlyphIndex index, Enum symbol);
-    float getFontFaceGlyphAttribFloat(FontFaceHandle handle, GlyphIndex index, Enum symbol);
+    short getFontFaceGlyphAttribInteger(FontFaceHandle handle, GlyphIndex index, GlyphAttribute symbol);
+    float getFontFaceGlyphAttribFloat(FontFaceHandle handle, GlyphIndex index, GlyphAttribute symbol);
     // Repeat per type
 }

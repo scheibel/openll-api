@@ -1,0 +1,23 @@
+
+/**
+*
+* LL_font_loading_otf
+*
+* depends: LL_core
+*
+**/
+
+namespace openll {
+
+    partial interface Module {
+        const Symbol MODULE_FONT_LOADING_OTF;
+    }
+
+    partial interface FontFormats {
+        const Symbol FONT_FORMAT_OTF;
+    }
+
+    partial interface FontFileType {
+        const Symbol FONT_FILE_OTF_FONT_FILE;
+    }
+}

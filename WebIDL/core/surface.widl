@@ -2,31 +2,38 @@
 // Surface
 
 namespace openll {
-    typedef unsigned short SurfaceHandle;
+    typedef Handle SurfaceHandle;
     
-    partial interface Enumerations {
-        const Enum NUM_SURFACE_TYPES;
-        
-        // Attributes
-        const Enum SURFACE_TYPE;
-        const Enum SURFACE_DEVICE_PIXEL_RATIO;
-        const Enum SURFACE_PIXEL_PER_INCH;
-        // const Enum SURFACE_REFERENCE_PIXEL_PER_INCH;
-        const Enum SURFACE_VIEWPORT;
-        // const Enum SURFACE_SUPERSAMPLING;
-        
-        // Maximums
-        const Enum MAX_SURFACE_INSTANCES;
+    partial interface Limits {
+        const Symbol NUM_SURFACE_TYPES;
+        const Symbol MAX_SURFACE_INSTANCES;
     }
-    
-    [Constructor(Enum type)]
+
+    partial interface SurfaceInformation {
+        const Symbol SURFACE_TYPES;
+    }
+
+    partial interface SurfaceAttribute {
+        const Symbol SURFACE_TYPE;
+        const Symbol SURFACE_DEVICE_PIXEL_RATIO;
+        const Symbol SURFACE_PIXEL_PER_INCH;
+        // const Symbol SURFACE_REFERENCE_PIXEL_PER_INCH;
+        const Symbol SURFACE_VIEWPORT;
+        // const Symbol SURFACE_SUPERSAMPLING;
+    }
+
+    partial interface SurfaceType {
+    }
+
+    [Constructor(SurfaceType type)]
     interface Surface {
-        
+        short getAttribInteger(SurfaceAttribute symbol);
+        float getAttribFloat(SurfaceAttribute symbol);
     }
     
-    SurfaceHandle createSurface(Enum type);
+    SurfaceHandle createSurface(SurfaceType type);
     void destroySurface(SurfaceHandle handle);
     
-    short getSurfaceAttribInteger(SurfaceHandle handle, Enum symbol);
-    float getSurfaceAttribFloat(SurfaceHandle handle, Enum symbol);
+    short getSurfaceAttribInteger(SurfaceHandle handle, SurfaceAttribute symbol);
+    float getSurfaceAttribFloat(SurfaceHandle handle, SurfaceAttribute symbol);
 }

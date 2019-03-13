@@ -15,6 +15,7 @@ namespace openll {
     // type float;
     
     typedef unsigned short Symbol;
+    typedef unsigned short Handle;
     
     // Booleans
 

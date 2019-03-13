@@ -2,40 +2,49 @@
 // Text
 
 namespace openll {
-    typedef unsigned short TextHandle;
+    typedef Handle TextHandle;
     
-    partial interface Enumerations {
-        // Encodings
-        const Enum INTERNAL_TEXT_ENCODINGS;
-        const Enum NUM_INTERNAL_TEXT_ENCODINGS;
-        const Enum TEXT_CONTENTS_ENCODINGS;
-        const Enum NUM_TEXT_CONTENTS_ENCODINGS;
-        const Enum TEXT_ENCODING_ANSI;
-        const Enum TEXT_ENCODING_ASCII;
-        
-        // Attributes
-        const Enum TEXT_LENGTH;
-        const Enum TEXT_ENCODING;
-        
-        // Maximums
-        const Enum MAX_TEXT_INSTANCES;
+    partial interface Limits {
+        const Symbol NUM_TEXT_FORMATS;
+        const Symbol NUM_TEXT_INTERNAL_FORMATS;
+        const Symbol MAX_TEXT_INSTANCES;
+    }
+
+    partial interface TextInformation {
+        const Symbol TEXT_FORMATS;
+        const Symbol TEXT_INTERNAL_FORMATS;
+    }
+
+    partial interface TextAttribute {
+        const Symbol TEXT_LENGTH;
+        const Symbol TEXT_ENCODING;
+    }
+
+    partial interface TextInternalFormat {
+        const Symbol TEXT_INTERNAL_FORMAT_ANSI;
+        const Symbol TEXT_INTERNAL_FORMAT_ASCII;
+    }
+
+    partial interface TextFormat {
+        const Symbol TEXT_FORMAT_ANSI;
+        const Symbol TEXT_FORMAT_ASCII;
     }
     
     [Constructor]
     interface Text {
-        void loadContents(Enum internalFormat, Enum contentEncoding, ByteString contents);
+        void loadContents(TextInternalFormat internalFormat, TextFormat contentEncoding, ByteString contents);
         
-        unsigned long getAttribUnsignedLong(Enum symbol);
-        Enum getAttribEnum(Enum symbol);
+        unsigned long getAttribUnsignedLong(TextAttribute symbol);
+        Symbol getAttribEnum(TextAttribute symbol);
         // Repeat per type
     }
     
     TextHandle createText();
     void destroyText(TextHandle handle);
     
-    void loadTextContents(TextHandle handle, Enum internalFormat, Enum contentEncoding, unsigned long length, ByteString contents);
+    void loadTextContents(TextHandle handle, TextInternalFormat internalFormat, TextFormat contentEncoding, ByteString contents);
     
-    unsigned long getTextAttribUnsignedLong(TextHandle handle, Enum symbol);
-    Enum getTextAttribEnum(TextHandle handle, Enum symbol);
+    unsigned long getTextAttribUnsignedLong(TextHandle handle, TextAttribute symbol);
+    Symbol getTextAttribEnum(TextHandle handle, TextAttribute symbol);
     // Repeat per type
 }

@@ -1,14 +1,7 @@
 
-/**
-*
-* LL_base
-*
-**/
+// Error
 
 namespace openll {
-    
-    // Error Codes
-
     partial interface ErrorCode {
         const Symbol SUCCESS;
         const Symbol INVALID_VALUE;

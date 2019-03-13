@@ -13,8 +13,11 @@ namespace openll {
         const Symbol MODULE_ENCODING_UTF8;
     }
 
-    partial interface Enumerations {
-        // Encodings
-        const Enum TEXT_ENCODING_UTF8;
+    partial interface TextInternalFormat {
+        const Symbol TEXT_INTERNAL_FORMAT_UTF8;
+    }
+
+    partial interface TextFormat {
+        const Symbol TEXT_FORMAT_UTF8;
     }
 }

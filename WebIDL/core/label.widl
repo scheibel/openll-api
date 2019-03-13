@@ -1,0 +1,55 @@
+
+// Label
+
+namespace openll {
+    typedef Handle LabelHandle;
+
+    partial interface Limits {
+        const Symbol MAX_LABEL_INSTANCES;
+    }
+
+    partial interface LabelAttribute {
+        const Symbol TYPESET_MODE;
+        const Symbol TYPESET_ALIGNMENT;
+        const Symbol TYPESET_ANCHOR;
+        const Symbol TYPESET_FONT_SIZE;
+        const Symbol TYPESET_FONT_WEIGHT;
+    }
+
+    partial interface TypesetMode {
+        const Symbol TYPESET_MODE_2D;
+        const Symbol TYPESET_MODE_3D;
+    }
+
+    partial interface Alignment {
+        const Symbol TYPESET_ALIGNMENT_LEFT_ALIGNED;
+        const Symbol TYPESET_ALIGNMENT_RIGHT_ALIGNED;
+        const Symbol TYPESET_ALIGNMENT_CENTERED;
+    }
+
+    partial interface Anchor {
+        const Symbol TYPESET_ANCHOR_BASELINE;
+        const Symbol TYPESET_ANCHOR_ASCENT;
+        const Symbol TYPESET_ANCHOR_DESCENT;
+    }
+    
+    [Constructor]
+    interface Label {
+        short getAttribInteger(LabelAttribute symbol);
+        void setAttribInteger(LabelAttribute symbol, short value);
+        // Repeat per type
+        
+        void assignText(Text text);
+        void assignFontFace(FontFace fontFace);
+    }
+    
+    LabelHandle createLabel();
+    void destroyLabel(LabelHandle handle);
+    
+    short getLabelAttribInteger(LabelHandle handle, LabelAttribute symbol);
+    void setLabelAttribInteger(LabelHandle handle, LabelAttribute symbol, short value);
+    // Repeat per type
+    
+    void assignLabelText(LabelHandle handle, TextHandle text);
+    void assignLabelFontFace(LabelHandle handle, FontFaceHandle fontFace);
+}

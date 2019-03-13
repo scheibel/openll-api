@@ -1,0 +1,24 @@
+
+/**
+*
+* LL_font_loading_dtf
+*
+* depends: LL_core
+*
+**/
+
+namespace openll {
+
+    partial interface Module {
+        const Symbol MODULE_FONT_LOADING_DTF;
+    }
+
+    partial interface FontFormat {
+        const Symbol FONT_FORMAT_DTF;
+    }
+
+    partial interface FontFileType {
+        const Symbol FONT_FILE_DTF_DISTANCE_FIELD;
+        const Symbol FONT_FILE_DTF_FONT_INFORMATION;
+    }
+}
