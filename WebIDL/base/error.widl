@@ -1,0 +1,22 @@
+
+/**
+*
+* LL_base
+*
+**/
+
+namespace openll {
+    
+    // Error Codes
+
+    partial interface ErrorCode {
+        const Symbol SUCCESS;
+        const Symbol INVALID_VALUE;
+        const Symbol INVALID_OPERATION;
+        const Symbol OUT_OF_MEMORY;
+        const Symbol EXTENSION_NOT_PRESENT;
+        const Symbol OBJECT_UNKNOWN;
+    }
+    
+    ErrorCode getError();
+}

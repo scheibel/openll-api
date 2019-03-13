@@ -1,7 +1,7 @@
 
 // Surface
 
-partial namespace openll {
+namespace openll {
     typedef unsigned short SurfaceHandle;
     
     partial interface Enumerations {

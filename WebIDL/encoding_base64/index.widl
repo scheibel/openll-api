@@ -1,7 +1,7 @@
 
 /**
 *
-* LL_encoding_uc32
+* LL_encoding_base64
 *
 * depends: LL_core
 *
@@ -10,11 +10,11 @@
 namespace openll {
 
     partial interface Module {
-        const Symbol MODULE_ENCODING_UC32;
+        const Symbol MODULE_ENCODING_BASE64;
     }
 
     partial interface Enumerations {
         // Encodings
-        const Enum TEXT_ENCODING_UC32;
+        const Enum TEXT_ENCODING_BASE64;
     }
 }

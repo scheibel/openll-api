@@ -7,7 +7,12 @@
 *
 **/
 
-partial namespace openll {
+namespace openll {
+
+    partial interface Module {
+        const Symbol MODULE_ENCODING_UTF8;
+    }
+
     partial interface Enumerations {
         // Encodings
         const Enum TEXT_ENCODING_UTF8;

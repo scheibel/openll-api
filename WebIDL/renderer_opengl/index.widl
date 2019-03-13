@@ -1,0 +1,14 @@
+
+/**
+*
+* LL_renderer_opengl
+*
+* depends: LL_core
+*
+**/
+
+namespace openll {
+    partial interface Module {
+        const Symbol MODULE_RENDERER_OPENGL;
+    }
+}

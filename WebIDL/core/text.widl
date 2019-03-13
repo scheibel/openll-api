@@ -1,7 +1,7 @@
 
 // Text
 
-partial namespace openll {
+namespace openll {
     typedef unsigned short TextHandle;
     
     partial interface Enumerations {

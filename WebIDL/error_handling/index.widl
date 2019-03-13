@@ -7,7 +7,12 @@
 *
 **/
 
-partial namespace openll {
+namespace openll {
+
+    partial interface Module {
+        const Symbol MODULE_ERROR_HANDLING;
+    }
+
     callback ErrorCallback = void(ErrorCode code, ErrorSeverity severity);
     
     void setErrorFunc(ErrorCallback callback);

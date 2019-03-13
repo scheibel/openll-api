@@ -1,0 +1,23 @@
+
+// Modules
+
+namespace openll {
+    
+    callback Function = void();
+    
+    // Module Handling
+    
+    partial interface ModuleInformation {
+        const Symbol MODULES;
+    }
+
+    partial interface Module {
+    }
+    
+    partial interface Limits {
+        const Symbol NUM_MODULES;
+    }
+    
+    boolean isSupported(Symbol symbol);
+    Function resolveFunction(ByteString name);
+}

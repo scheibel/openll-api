@@ -1,7 +1,7 @@
 
 // FontFace
 
-partial namespace openll {
+namespace openll {
     typedef unsigned short FontFaceHandle;
     typedef unsigned long GlyphIndex;
     typedef unsigned long KerningIndex;

@@ -1,7 +1,7 @@
 
 // Surface
 
-partial namespace openll {
+namespace openll {
     partial interface Enumerations {
         const Enum SURFACE_TYPE_OPENGL_TEXTURE;
         const Enum SURFACE_TYPE_OPENGL_FRAMEBUFFER;

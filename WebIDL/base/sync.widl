@@ -1,0 +1,28 @@
+
+// Sync
+
+namespace openll {
+    typedef unsigned short SyncHandle;
+
+    partial interface Enumerations {
+        // Sync conditions
+        const Enum SYNC_RENDERING_COMPLETE;
+
+        // Return codes
+        const Enum ALREADY_SIGNALED;
+        const Enum TIMEOUT_EXPIRED;
+        const Enum CONDITION_SATISFIED;
+        const Enum WAIT_FAILED;
+    }
+
+    interface Sync {
+        Enum clientWait(SyncHandle handle, unsigned long long timeout);
+        boolean serverWait(SyncHandle handle);
+    }
+
+    SyncHandle createSync();
+    void destroySync(SyncHandle handle);
+
+    Enum syncClientWait(SyncHandle handle, unsigned long long timeout);
+    boolean syncServerWait(SyncHandle handle);
+}

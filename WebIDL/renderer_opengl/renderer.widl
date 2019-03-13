@@ -1,11 +1,11 @@
 
 // Renderer
 
-partial namespace openll {
+namespace openll {
     partial interface Enumerations {
         const Enum RENDERER_TYPE_OPENGL;
 
         // Attributes
-        const Enum RENDERER_SYPERSAMPLING;
+        const Enum RENDERER_SUPERSAMPLING;
     }
 }

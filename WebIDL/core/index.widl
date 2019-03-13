@@ -6,3 +6,9 @@
 * depends: LL_base
 *
 **/
+
+namespace openll {
+    partial interface Module {
+        const Symbol MODULE_CORE;
+    }
+}
